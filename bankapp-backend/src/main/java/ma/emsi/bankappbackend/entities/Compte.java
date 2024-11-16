@@ -1,6 +1,7 @@
 package ma.emsi.bankappbackend.entities;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,6 +20,7 @@ public class Compte {
     private double solde;
 
     @Temporal(TemporalType.DATE)
+    @JsonIgnore
     private Date dateCreation;
 
     @Enumerated(EnumType.STRING)

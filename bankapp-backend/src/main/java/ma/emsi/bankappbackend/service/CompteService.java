@@ -9,6 +9,7 @@ import ma.emsi.bankappbackend.repositories.CompteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 @Service
 public class CompteService {
@@ -29,6 +30,7 @@ public class CompteService {
         if (compte.getSolde() < 0) {
             throw new InvalidBalanceException("Balance cannot be negative");
         }
+        compte.setDateCreation(new Date());
         return compteRepository.save(compte);
     }
 
